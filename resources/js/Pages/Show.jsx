@@ -1,4 +1,4 @@
-import { useForm } from '@inertiajs/react';
+import { useForm, Link } from '@inertiajs/react';
 import { useRoute } from '../../../vendor/tightenco/ziggy';
 
 export default function Show({ post }) {
@@ -22,6 +22,15 @@ export default function Show({ post }) {
                 <p className="font-medium">{post.body}</p>
 
                 <div className="flex items-center justify-end gap-2">
+
+                    {/* <Link href={`/posts/${post.id}/edit`} className="bg-blue-500 rounded-md text-sm px-4 py-1 text-white">
+                        Update
+                    </Link> */}
+
+                    <Link href={route('posts.edit', post)} className="bg-blue-500 rounded-md text-sm px-4 py-1 text-white">
+                        Update
+                    </Link>
+
                     <form onSubmit={handleDelete}>
                         <button className="bg-red-500 rounded-md text-sm px-4 py-1 text-white">
                             Delete

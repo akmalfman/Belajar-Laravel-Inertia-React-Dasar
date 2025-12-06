@@ -6,10 +6,12 @@ export default function Home({ posts }) {
     const route = useRoute();
     const { flash } = usePage().props
     const [flashMsg, setFlashMsg] = useState(flash.message);
+    const [flashScs, setFlashScs] = useState(flash.success);
     const { component } = usePage();
 
     setTimeout(() => {
-        setFlashMsg(null);
+        setFlashMsg(null),
+            setFlashScs(null)
     }, 2000)
 
     return (
@@ -21,8 +23,11 @@ export default function Home({ posts }) {
             <h1 className="title">Hello</h1>
 
             {flashMsg && (
-
                 <div className='absolute top-24 right-6 bg-rose-500 p-2 rounded-md shadow-lg text-sm text-white'>{flashMsg}</div>
+            )}
+
+            {flashScs && (
+                <div className='absolute top-24 right-6 bg-green-500 p-2 rounded-md shadow-lg text-sm text-white'>{flashScs}</div>
             )}
 
             <div>
